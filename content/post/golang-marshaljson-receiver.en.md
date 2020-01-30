@@ -1,5 +1,5 @@
 ---
-title: "Golang MarshalJSON pointer vs value receviers"
+title: "Golang MarshalJSON pointer vs value receiver"
 date: 2019-03-17T14:27:41+08:00
 showDate: true
 
@@ -15,7 +15,7 @@ author: "Andro West"
 <!--more-->
 
 
-__Wrong__ code here, value is mess up with pointer recevier function:
+__Wrong__ code here, value is mess up with pointer receiver function:
 ```
 package main
 
@@ -84,8 +84,8 @@ func main() {
 Output:
 `{"MyMarshalJSON":"it should be shown."}`
 
->If you pass a pointer to json.Marshal, and your reciever is a value, it WILL call the custom MashalJSON method on the value.    
->So general rule: __DON’T make your MarshalJSON reciever a pointer.__
+>If you pass a pointer to json.Marshal, and your receiver is a value, it WILL call the custom MashalJSON method on the value.    
+>So general rule: __Make sure you passing type as same as MarshalJSON receiver's type.__
 
 Credit:    
 [Today I Learned: Beware with pointer in Golang!](https://hackernoon.com/today-i-learned-beware-with-pointer-in-golang-7764f2060a93)    

@@ -1,0 +1,11 @@
+# Font style metadata 
+name = "JetBrains Mono" # on assets\scss\custom.scss and static\css\fonts
+
+# Optional Google font URL
+google_fonts = "Orbitron:700"
+
+# Font families
+heading_font = "JetBrains Mono"
+body_font = "JetBrains Mono"
+nav_font = "Orbitron"
+mono_font = "JetBrains Mono"

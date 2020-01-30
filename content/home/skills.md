@@ -37,4 +37,16 @@ subtitle = ""
   icon_pack = "fas"
   name = "Android Reverse Engineering"
   description = "60%"
+
+[[feature]]
+  icon = "stream"
+  icon_pack = "fas"
+  name = "Machine Learning"
+  description = "40%"
+
+[[feature]]
+  icon = "windows"
+  icon_pack = "fab"
+  name = "Windows"
+  description = "70%"
 +++
