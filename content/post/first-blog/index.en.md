@@ -15,3 +15,4 @@ The first article for ever.
 
 The blog built with [Hugo](https://gohugo.io/) and used [Academic theme](https://sourcethemes.com/academic/)
 
+![West World](ww.jpg)
