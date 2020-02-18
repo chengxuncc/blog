@@ -385,25 +385,30 @@
    * --------------------------------------------------------------------------- */
 
   $(document).ready(function() {
-    // Fix Hugo's auto-generated Table of Contents.
-    //   Must be performed prior to initializing ScrollSpy.
-    $('#TableOfContents > ul > li > ul').unwrap().unwrap();
+    // Fix Goldmark table of contents.
+    // - Must be performed prior to initializing ScrollSpy.
     $('#TableOfContents').addClass('nav flex-column');
     $('#TableOfContents li').addClass('nav-item');
     $('#TableOfContents li a').addClass('nav-link');
 
-    // Fix Mmark task lists (remove bullet points).
+    // Fix Goldmark task lists (remove bullet points).
     $("input[type='checkbox'][disabled]").parents('ul').addClass('task-list');
 
     // Fix Mermaid.js clash with Highlight.js.
+    // Refactor Mermaid code blocks as divs to prevent Highlight parsing them and enable Mermaid to parse them.
     let mermaids = [];
     [].push.apply(mermaids, document.getElementsByClassName('language-mermaid'));
-    for (i = 0; i < mermaids.length; i++) {
+    for (let i = 0; i < mermaids.length; i++) {
       $(mermaids[i]).unwrap('pre');  // Remove <pre> wrapper.
       $(mermaids[i]).replaceWith(function(){
         // Convert <code> block to <div> and add `mermaid` class so that Mermaid will parse it.
         return $("<div />").append($(this).contents()).addClass('mermaid');
       });
+    }
+    // Initialise code highlighting if enabled for this page.
+    // Note: this block should be processed after the Mermaid code-->div conversion.
+    if (code_highlighting) {
+      hljs.initHighlighting();
     }
 
     // Get theme variation (day/night).
