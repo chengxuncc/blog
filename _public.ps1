@@ -1,4 +1,9 @@
 Split-Path $MyInvocation.MyCommand.Path | Set-Location
+
+git add .
+git commit -m "daily update"
+git push
+
 cd public
 git pull
 

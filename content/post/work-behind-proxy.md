@@ -71,7 +71,7 @@ GOPROXY=https://goproxy.io/
 ```
 
 ## Scoop
-```powershell
+```
 scoop config proxy 127.0.0.1:1080
 ```
 
