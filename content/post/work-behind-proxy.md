@@ -35,7 +35,7 @@ echo '
         "default": {
             "httpProxy": "http://127.0.0.1:1080",
             "httpsProxy": "http://127.0.0.1:1080",
-            "noProxy": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+            "noProxy": "localhost,*.local,127.0.0.1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,::1,fe80::/10"
         }
     }
 }
@@ -46,8 +46,8 @@ echo '
 permanently
 ```bash
 echo '
-no_proxy=localhost,*.local,127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,::1/128,fe80::/10
-NO_PROXY=localhost,*.local,127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,::1/128,fe80::/10
+no_proxy=localhost,*.local,127.0.0.1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,::1,fe80::/10
+NO_PROXY=localhost,*.local,127.0.0.1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,::1,fe80::/10
 http_proxy=http://127.0.0.1:1080
 HTTP_PROXY=http://127.0.0.1:1080
 https_proxy=http://127.0.0.1:1080
@@ -57,6 +57,8 @@ HTTPS_PROXY=http://127.0.0.1:1080
 
 temporarily
 ```bash
+export no_proxy=localhost,*.local,127.0.0.1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,::1,fe80::/10
+export NO_PROXY=localhost,*.local,127.0.0.1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,::1,fe80::/10
 export http_proxy=http://127.0.0.1:1080
 export HTTP_PROXY=http://127.0.0.1:1080
 export https_proxy=http://127.0.0.1:1080
@@ -80,4 +82,12 @@ $Home\Documents\WindowsPowerShell\Profile.ps1
 ```
 $env:http_proxy="http://127.0.0.1:1080"
 $env:https_proxy="http://127.0.0.1:1080"
+$env:no_proxy="localhost,*.local,127.0.0.1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,::1,fe80::/10"
+```
+
+## CMD
+```
+SET http_proxy=http://127.0.0.1:1080
+SET https_proxy=http://127.0.0.1:1080
+SET no_proxy=localhost,*.local,127.0.0.1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,::1,fe80::/10
 ```
